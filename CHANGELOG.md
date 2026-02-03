@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.0.2 (2026-02-03)
+
+
+### Bug Fixes
+
+* fix workflow yaml files ([84642ff](https://github.com/antify/template-module/commit/84642ff2f623a3e2c3741e8fdbcffe62cf66fb7a))
+
 ### 0.0.20 (2026-01-14)
 
 ### 0.0.19 (2026-01-14)
