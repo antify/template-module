@@ -31,6 +31,9 @@ jobs:
         run: pnpm i
 
       - name: Prepare playground
+        run: pnpm run dev:prepare
+
+      - name: Prepare playground
         run: pnpm run build
 
         # 👇 Adds Chromatic as a step in the workflow
