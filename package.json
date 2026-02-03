@@ -9,7 +9,9 @@
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxi prepare playground",
     "release": "standard-version && git push --follow-tags && pnpm publish --access public",
-    "lint": "eslint . --fix"
+    "build-storybook": "storybook build -c playground/.storybook",
+    "lint": "eslint . --fix",
+    "chromatic": "npx chromatic --project-token=chpt_d8f6b870f8bdcd8"
   },
   "exports": {
     ".": {
@@ -43,6 +45,7 @@
     "@storybook/vue3": "8.6.15",
     "@stylistic/eslint-plugin": "^2.11.0",
     "autoprefixer": "^10.4.20",
+    "chromatic": "^15.0.0",
     "eslint": "8.57.0",
     "eslint-plugin-vue": "^9.32.0",
     "globals": "^15.13.0",
