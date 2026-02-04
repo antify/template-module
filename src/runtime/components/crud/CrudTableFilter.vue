@@ -69,7 +69,7 @@ const search = computed({
     })();
   },
 });
-const searchInputRef = ref<HTMLInputElement | null>(null)
+const searchInputRef = ref<HTMLInputElement | null>(null);
 
 watch(() => props.fullWidth, (val) => {
   setTimeout(() => {
@@ -83,7 +83,7 @@ watch(searchInputRef, (val) => {
   }
 
   val.focus();
-})
+});
 </script>
 
 <template>
@@ -138,7 +138,7 @@ watch(searchInputRef, (val) => {
         </template>
       </AntDropdown>
 
-<!--  Temporary solution: Use backlayer instead of on click outside to solve the problem with popover over other popover    -->
+      <!--  Temporary solution: Use backlayer instead of on click outside to solve the problem with popover over other popover    -->
       <div
         v-if="showDropdown"
         class="inset-0 absolute w-full h-full z-20"

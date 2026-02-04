@@ -1,11 +1,15 @@
-import {reactive} from "vue";
-import {InputState} from "@antify/ui";
+import {
+  reactive,
+} from 'vue';
+import {
+  InputState,
+} from '@antify/ui';
 
 export type FormFieldType = {
   errors: string[];
   state: InputState;
   validate: () => Promise<void>;
-}
+};
 
 /**
  * Yup validation throws an error if the value expect not the given schema.
@@ -29,7 +33,7 @@ export function useFormField(validationFn: () => Promise<void>) {
         _reactive.errors = e?.errors || [];
         _reactive.state = InputState.danger;
       }
-    }
+    },
   });
 
   return _reactive;

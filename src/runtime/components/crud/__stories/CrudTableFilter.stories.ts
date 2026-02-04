@@ -7,11 +7,13 @@ import {
 } from 'storybook-vue3-router';
 import {
   useRoute,
-} from 'vue-router'
+} from 'vue-router';
 import {
-  AntMultiSelect, InputState
-} from "@antify/ui";
-import {ref} from "vue";
+  AntMultiSelect, InputState,
+} from '@antify/ui';
+import {
+  ref,
+} from 'vue';
 
 const meta: Meta<typeof CrudTableFilter> = {
   title: 'Crud/Crud Table Filter',
@@ -34,7 +36,7 @@ const meta: Meta<typeof CrudTableFilter> = {
       {
         path: '/',
         component: CrudTableFilter,
-      }
+      },
     ]),
   ],
 };
@@ -79,7 +81,9 @@ export const withDropdownContent: Story = {
       AntMultiSelect,
     },
     setup() {
-      const selectValue = ref(['1'])
+      const selectValue = ref([
+        '1',
+      ]);
       const options = [
         {
           label: '1',
@@ -92,8 +96,8 @@ export const withDropdownContent: Story = {
         {
           label: '3',
           value: '3',
-        }
-      ]
+        },
+      ];
 
       return {
         args,

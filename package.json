@@ -42,6 +42,8 @@
     "@nuxt/module-builder": "latest",
     "@nuxtjs/storybook": "8.3.5",
     "@storybook/addon-essentials": "8.6.15",
+    "@storybook/addon-interactions": "8.6.15",
+    "@storybook/addon-links": "8.6.15",
     "@storybook/vue3": "8.6.15",
     "@stylistic/eslint-plugin": "^2.11.0",
     "autoprefixer": "^10.4.20",

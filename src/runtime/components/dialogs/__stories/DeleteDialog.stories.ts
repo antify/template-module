@@ -20,6 +20,11 @@ export default meta;
 type Story = StoryObj<typeof DeleteDialog>;
 
 export const Docs: Story = {
+  parameters: {
+    chromatic: {
+      disableSnapshot: false,
+    },
+  },
   render: (args) => ({
     components: {
       DeleteDialog,
@@ -43,7 +48,7 @@ export const Docs: Story = {
     `,
   }),
   args: {
-    open: false,
+    open: true,
     entity: 'Lorem ipsum',
   },
 };

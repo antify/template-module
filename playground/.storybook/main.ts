@@ -1,19 +1,21 @@
-import type { StorybookConfig } from '@storybook-vue/nuxt';
+import type {
+  StorybookConfig,
+} from '@storybook-vue/nuxt';
 
 const config: StorybookConfig = {
-  "stories": [
-    "../../src/**/*.mdx",
-    "../../src/**/*.stories.@(js|jsx|ts|tsx|mdx)"
+  stories: [
+    '../../src/**/*.mdx',
+    '../../src/**/*.stories.@(js|jsx|ts|tsx|mdx)',
   ],
-  "addons": [
+  addons: [
     '@storybook/addon-links',
-    "@storybook/addon-essentials",
+    '@storybook/addon-essentials',
     '@storybook/addon-interactions',
-    // "@chromatic-com/storybook",
+    '@chromatic-com/storybook',
   ],
-  "framework": {
-    "name": "@storybook-vue/nuxt",
-    "options": {}
+  framework: {
+    name: '@storybook-vue/nuxt',
+    options: {},
   },
 };
 export default config;

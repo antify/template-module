@@ -3,7 +3,7 @@ import {
   type Meta, type StoryObj,
 } from '@storybook/vue3';
 import {
-  Position, Grouped as _Grouped, Size, InputState,
+  Position, Grouped as _Grouped, Size, InputState, AntFormGroupLabel, AntFormGroup, State, Direction,
 } from '@antify/ui';
 
 const meta: Meta<typeof SaveAndNewButton> = {
@@ -109,4 +109,94 @@ export const InvalidPermission: Story = {
     ...Docs.args,
     canSave: false,
   },
+};
+
+export const Summary: Story = {
+  parameters: {
+    chromatic: {
+      disableSnapshot: false,
+    },
+  },
+  render: (args) => ({
+    components: {
+      SaveAndNewButton,
+      AntFormGroupLabel,
+      AntFormGroup,
+    },
+    setup() {
+      return {
+        args,
+        State,
+        Size,
+        _Grouped,
+        Direction,
+      };
+    },
+    template: `
+      <AntFormGroup>
+        <AntFormGroup>
+          <AntFormGroupLabel>Sizes</AntFormGroupLabel>
+          <div class="flex gap-2">
+            <SaveAndNewButton :size="Size.xs2"/>
+            <SaveAndNewButton :size="Size.xs"/>
+            <SaveAndNewButton :size="Size.sm"/>
+            <SaveAndNewButton :size="Size.md"/>
+            <SaveAndNewButton :size="Size.lg"/>
+          </div>
+        </AntFormGroup>
+
+        <AntFormGroup>
+          <AntFormGroupLabel>Disabled</AntFormGroupLabel>
+          <div>
+            <SaveAndNewButton disabled disabled-tooltip-message="Dieser Button ist deaktiviert"/>
+          </div>
+        </AntFormGroup>
+
+        <AntFormGroup>
+          <AntFormGroupLabel>Skeleton</AntFormGroupLabel>
+          <div>
+            <SaveAndNewButton skeleton/>
+          </div>
+        </AntFormGroup>
+
+        <AntFormGroup>
+          <AntFormGroupLabel>No Permission</AntFormGroupLabel>
+          <div>
+            <SaveAndNewButton :can-save="false" invalid-permission-tooltip-message="Du hast keine Berechtigung, um diesen Button zu klicken"/>
+          </div>
+        </AntFormGroup>
+
+        <AntFormGroup>
+          <AntFormGroupLabel>With Tooltip</AntFormGroupLabel>
+          <div>
+            <SaveAndNewButton tooltip-message="Das ist eine Speichern und neu Button"/>
+          </div>
+        </AntFormGroup>
+
+        <AntFormGroup>
+          <AntFormGroupLabel>Grouped</AntFormGroupLabel>
+          <div class="flex gap-2">
+            <SaveAndNewButton grouped="left"/>
+            <SaveAndNewButton grouped="center"/>
+            <SaveAndNewButton grouped="right"/>
+          </div>
+        </AntFormGroup>
+
+        <AntFormGroup>
+          <AntFormGroupLabel>Icon variant</AntFormGroupLabel>
+          <div>
+            <SaveAndNewButton icon-variant/>
+          </div>
+        </AntFormGroup>
+
+        <AntFormGroup>
+          <AntFormGroupLabel>Expanded</AntFormGroupLabel>
+          <div>
+            <SaveAndNewButton expanded/>
+          </div>
+        </AntFormGroup>
+      </AntFormGroup>
+    `,
+  }),
+  args: {},
 };
