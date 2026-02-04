@@ -64,11 +64,6 @@ function generateTableData(amount: number) {
 }
 
 export const Docs: Story = {
-  parameters: {
-    chromatic: {
-      disableSnapshot: false,
-    },
-  },
   render: (args) => ({
     components: {
       AntTabs,
@@ -165,6 +160,11 @@ export const Docs: Story = {
 };
 
 export const Summary: Story = {
+  parameters: {
+    chromatic: {
+      disableSnapshot: false,
+    },
+  },
   render: (args) => ({
     components: {
       AntTabs,
