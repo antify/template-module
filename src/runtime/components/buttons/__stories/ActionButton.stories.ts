@@ -182,9 +182,9 @@ export const Summary: Story = {
           </div>
         </AntFormGroup>
 
-        <AntFormGroup :direction="Direction.row">
           <AntFormGroup>
             <AntFormGroupLabel>Disabled</AntFormGroupLabel>
+            <div>
               <ActionButton
                 disabled
                 tooltip-message="Das ist ein Action Button"
@@ -192,26 +192,32 @@ export const Summary: Story = {
               >
                 Action Button
               </ActionButton>
+            </div>
           </AntFormGroup>
 
           <AntFormGroup>
             <AntFormGroupLabel>Skeleton</AntFormGroupLabel>
+            <div>
               <ActionButton skeleton>Action Button</ActionButton>
+            </div>
           </AntFormGroup>
 
           <AntFormGroup>
             <AntFormGroupLabel>No Permission</AntFormGroupLabel>
-              <ActionButton :has-permission="false" invalid-permission-tooltip-message="Du hast keine Berechtigung, um diesen Button zu klicken"
-              >
+            <div>
+              <ActionButton :has-permission="false" invalid-permission-tooltip-message="Du hast keine Berechtigung, um diesen Button zu klicken">
                 Action Button
               </ActionButton>
+            </div>
           </AntFormGroup>
 
           <AntFormGroup>
             <AntFormGroupLabel>With Tooltip</AntFormGroupLabel>
+            <div>
               <ActionButton tooltip-message="Das ist ein Action Button">
                 Action Button
               </ActionButton>
+            </div>
           </AntFormGroup>
 
           <AntFormGroup>
@@ -231,11 +237,12 @@ export const Summary: Story = {
               <ActionButton :icon-right="faPlus">Action Button</ActionButton>
             </div>
           </AntFormGroup>
-        </AntFormGroup>
 
         <AntFormGroup>
           <AntFormGroupLabel>Expanded</AntFormGroupLabel>
+          <div>
             <ActionButton expanded>Action Button</ActionButton>
+          </div>
         </AntFormGroup>
       </AntFormGroup>
     `,
