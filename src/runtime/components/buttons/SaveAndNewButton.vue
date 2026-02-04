@@ -20,8 +20,10 @@ withDefaults(defineProps<{
   expanded?: boolean;
   canSave?: boolean;
   tooltipPosition?: Position;
-  saveTooltipMessage?: string;
   tooltipState?: InputState;
+  tooltipMessage?: string;
+  disabledTooltipMessage?: string;
+  invalidPermissionTooltipMessage?: string;
 }>(), {
   iconVariant: false,
   canSave: true,
@@ -43,6 +45,9 @@ withDefaults(defineProps<{
     :has-permission="canSave"
     :tooltip-position="tooltipPosition"
     :tooltip-state="tooltipState"
+    :tooltip-message="tooltipMessage"
+    :disabled-tooltip-message="disabledTooltipMessage"
+    :invalid-permission-tooltip-message="invalidPermissionTooltipMessage"
     data-e2e="save-and-new-button"
     @click="$emit('click')"
     @blur="$emit('blur')"
@@ -54,16 +59,16 @@ withDefaults(defineProps<{
       Speichern und neu
     </template>
 
-    <template #invalidPermissionTooltipContent>
-      <div>
-        <template v-if="saveTooltipMessage">
-          {{ saveTooltipMessage }}
-        </template>
+    <template #tooltipContent>
+      <slot name="tooltipContent" />
+    </template>
 
-        <template v-else>
-          Du hast keine Berechtigung um Einträge zu speichern.<br> Bitte kontaktiere deinen Administrator
-        </template>
-      </div>
+    <template #disabledTooltipContent>
+      <slot name="disabledTooltipContent" />
+    </template>
+
+    <template #invalidPermissionTooltipContent>
+      <slot name="invalidPermissionTooltipContent" />
     </template>
   </ActionButton>
 </template>

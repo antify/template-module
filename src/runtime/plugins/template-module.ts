@@ -1,6 +1,12 @@
-import {defineNuxtPlugin} from '#app';
-import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
-import {useToaster} from '@antify/ui';
+import {
+  defineNuxtPlugin,
+} from '#app';
+import {
+  FontAwesomeIcon,
+} from '@fortawesome/vue-fontawesome';
+import {
+  useToaster,
+} from '@antify/ui';
 
 export default defineNuxtPlugin((nuxtApp) => {
   const toaster = useToaster();
@@ -9,8 +15,8 @@ export default defineNuxtPlugin((nuxtApp) => {
   return {
     provide: {
       templateModule: {
-        toaster
-      }
-    }
+        toaster,
+      },
+    },
   };
 });

@@ -3,7 +3,7 @@ import {
   type Meta, type StoryObj,
 } from '@storybook/vue3';
 import {
-  Position, Grouped as _Grouped, Size, InputState,
+  Position, Grouped as _Grouped, Size, InputState, AntFormGroupLabel, AntFormGroup, State, Direction,
 } from '@antify/ui';
 
 const meta: Meta<typeof SaveButton> = {
@@ -109,4 +109,94 @@ export const InvalidPermission: Story = {
     ...Docs.args,
     canSave: false,
   },
+};
+
+export const Summary: Story = {
+  parameters: {
+    chromatic: {
+      disableSnapshot: false,
+    },
+  },
+  render: (args) => ({
+    components: {
+      SaveButton,
+      AntFormGroupLabel,
+      AntFormGroup,
+    },
+    setup() {
+      return {
+        args,
+        State,
+        Size,
+        _Grouped,
+        Direction,
+      };
+    },
+    template: `
+      <AntFormGroup>
+        <AntFormGroup>
+          <AntFormGroupLabel>Sizes</AntFormGroupLabel>
+          <div class="flex gap-2">
+            <SaveButton :size="Size.xs2"/>
+            <SaveButton :size="Size.xs"/>
+            <SaveButton :size="Size.sm"/>
+            <SaveButton :size="Size.md"/>
+            <SaveButton :size="Size.lg"/>
+          </div>
+        </AntFormGroup>
+
+        <AntFormGroup>
+          <AntFormGroupLabel>Disabled</AntFormGroupLabel>
+          <div>
+            <SaveButton disabled disabled-tooltip-message="Dieser Button ist deaktiviert"/>
+          </div>
+        </AntFormGroup>
+
+        <AntFormGroup>
+          <AntFormGroupLabel>Skeleton</AntFormGroupLabel>
+          <div>
+            <SaveButton skeleton/>
+          </div>
+        </AntFormGroup>
+
+        <AntFormGroup>
+          <AntFormGroupLabel>No Permission</AntFormGroupLabel>
+          <div>
+            <SaveButton :can-save="false" invalid-permission-tooltip-message="Du hast keine Berechtigung, um diesen Button zu klicken"/>
+          </div>
+        </AntFormGroup>
+
+        <AntFormGroup>
+          <AntFormGroupLabel>With Tooltip</AntFormGroupLabel>
+          <div>
+            <SaveButton tooltip-message="Das ist ein Speichern Button"/>
+          </div>
+        </AntFormGroup>
+
+        <AntFormGroup>
+          <AntFormGroupLabel>Grouped</AntFormGroupLabel>
+          <div class="flex gap-2">
+            <SaveButton grouped="left"/>
+            <SaveButton grouped="center"/>
+            <SaveButton grouped="right"/>
+          </div>
+        </AntFormGroup>
+
+        <AntFormGroup>
+          <AntFormGroupLabel>Icon variant</AntFormGroupLabel>
+          <div class="flex gap-2">
+            <SaveButton icon-variant/>
+          </div>
+        </AntFormGroup>
+
+        <AntFormGroup>
+          <AntFormGroupLabel>Expanded</AntFormGroupLabel>
+          <div class="flex gap-2">
+            <SaveButton expanded/>
+          </div>
+        </AntFormGroup>
+      </AntFormGroup>
+    `,
+  }),
+  args: {},
 };

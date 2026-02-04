@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import ActionButton from './ActionButton.vue';
 import {
-  Position, Size, Grouped, State, InputState
+  Position, Size, Grouped, State, InputState,
 } from '@antify/ui';
 import {
   faTrash,
@@ -20,7 +20,9 @@ withDefaults(defineProps<{
   expanded?: boolean;
   canDelete?: boolean;
   tooltipPosition?: Position;
-  deleteTooltipMessage?: string;
+  tooltipMessage?: string;
+  disabledTooltipMessage?: string;
+  invalidPermissionTooltipMessage?: string;
   tooltipState?: InputState;
 }>(), {
   iconVariant: false,
@@ -41,6 +43,9 @@ withDefaults(defineProps<{
     :has-permission="canDelete"
     :tooltip-position="tooltipPosition"
     :tooltip-state="tooltipState"
+    :tooltip-message="tooltipMessage"
+    :disabled-tooltip-message="disabledTooltipMessage"
+    :invalid-permission-tooltip-message="invalidPermissionTooltipMessage"
     data-e2e="delete-button"
     @click="$emit('click')"
     @blur="$emit('blur')"
@@ -52,16 +57,16 @@ withDefaults(defineProps<{
       Löschen
     </template>
 
-    <template #invalidPermissionTooltipContent>
-      <div>
-        <template v-if="deleteTooltipMessage">
-          {{ deleteTooltipMessage }}
-        </template>
+    <template #tooltipContent>
+      <slot name="tooltipContent" />
+    </template>
 
-        <template v-else>
-          Du hast keine Berechtigung um Einträge zu löschen.<br> Bitte kontaktiere deinen Administrator
-        </template>
-      </div>
+    <template #disabledTooltipContent>
+      <slot name="disabledTooltipContent" />
+    </template>
+
+    <template #invalidPermissionTooltipContent>
+      <slot name="invalidPermissionTooltipContent" />
     </template>
   </ActionButton>
 </template>

@@ -1,4 +1,6 @@
-import {defineBuildConfig} from 'unbuild';
+import {
+  defineBuildConfig,
+} from 'unbuild';
 export default defineBuildConfig({
   declaration: true,
   entries: [
@@ -11,4 +13,3 @@ export default defineBuildConfig({
   ],
   failOnWarn: false,
 });
-

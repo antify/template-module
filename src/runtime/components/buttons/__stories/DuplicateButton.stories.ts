@@ -3,7 +3,7 @@ import {
   type Meta, type StoryObj,
 } from '@storybook/vue3';
 import {
-  Position, Grouped as _Grouped, Size, InputState,
+  Position, Grouped as _Grouped, Size, InputState, AntFormGroupLabel, AntFormGroup, State, Direction,
 } from '@antify/ui';
 
 const meta: Meta<typeof DuplicateButton> = {
@@ -109,4 +109,94 @@ export const InvalidPermission: Story = {
     ...Docs.args,
     canDuplicate: false,
   },
+};
+
+export const Summary: Story = {
+  parameters: {
+    chromatic: {
+      disableSnapshot: false,
+    },
+  },
+  render: (args) => ({
+    components: {
+      DuplicateButton,
+      AntFormGroupLabel,
+      AntFormGroup,
+    },
+    setup() {
+      return {
+        args,
+        State,
+        Size,
+        _Grouped,
+        Direction,
+      };
+    },
+    template: `
+      <AntFormGroup>
+        <AntFormGroup>
+          <AntFormGroupLabel>Sizes</AntFormGroupLabel>
+          <div class="flex gap-2">
+            <DuplicateButton :size="Size.xs2"/>
+            <DuplicateButton :size="Size.xs"/>
+            <DuplicateButton :size="Size.sm"/>
+            <DuplicateButton :size="Size.md"/>
+            <DuplicateButton :size="Size.lg"/>
+          </div>
+        </AntFormGroup>
+
+        <AntFormGroup>
+          <AntFormGroupLabel>Disabled</AntFormGroupLabel>
+          <div>
+            <DuplicateButton disabled disabled-tooltip-message="Dieser Button ist deaktiviert"/>
+          </div>
+        </AntFormGroup>
+
+        <AntFormGroup>
+          <AntFormGroupLabel>Skeleton</AntFormGroupLabel>
+          <div>
+            <DuplicateButton skeleton/>
+          </div>
+        </AntFormGroup>
+
+        <AntFormGroup>
+          <AntFormGroupLabel>No Permission</AntFormGroupLabel>
+          <div>
+            <DuplicateButton :can-duplicate="false" invalid-permission-tooltip-message="Du hast keine Berechtigung, um diesen Button zu klicken"/>
+          </div>
+        </AntFormGroup>
+
+        <AntFormGroup>
+          <AntFormGroupLabel>With Tooltip</AntFormGroupLabel>
+          <div>
+            <DuplicateButton tooltip-message="Das ist ein Duplizieren Button"/>
+          </div>
+        </AntFormGroup>
+
+        <AntFormGroup>
+          <AntFormGroupLabel>Grouped</AntFormGroupLabel>
+          <div class="flex gap-2">
+            <DuplicateButton grouped="left"/>
+            <DuplicateButton grouped="center"/>
+            <DuplicateButton grouped="right"/>
+          </div>
+        </AntFormGroup>
+
+        <AntFormGroup>
+          <AntFormGroupLabel>Icon variant</AntFormGroupLabel>
+          <div>
+            <DuplicateButton icon-variant/>
+          </div>
+        </AntFormGroup>
+
+        <AntFormGroup>
+          <AntFormGroupLabel>Expanded</AntFormGroupLabel>
+          <div>
+            <DuplicateButton expanded/>
+          </div>
+        </AntFormGroup>
+      </AntFormGroup>
+    `,
+  }),
+  args: {},
 };

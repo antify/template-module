@@ -20,8 +20,10 @@ withDefaults(defineProps<{
   expanded?: boolean;
   canCreate?: boolean;
   tooltipPosition?: Position;
-  createTooltipMessage?: string;
   tooltipState?: InputState;
+  tooltipMessage?: string;
+  disabledTooltipMessage?: string;
+  invalidPermissionTooltipMessage?: string;
 }>(), {
   iconVariant: false,
   canCreate: true,
@@ -41,6 +43,9 @@ withDefaults(defineProps<{
     :has-permission="canCreate"
     :tooltip-position="tooltipPosition"
     :tooltip-state="tooltipState"
+    :tooltip-message="tooltipMessage"
+    :disabled-tooltip-message="disabledTooltipMessage"
+    :invalid-permission-tooltip-message="invalidPermissionTooltipMessage"
     data-e2e="create-button"
     @click="$emit('click')"
     @blur="$emit('blur')"
@@ -52,16 +57,16 @@ withDefaults(defineProps<{
       Erstellen
     </template>
 
-    <template #invalidPermissionTooltipContent>
-      <div>
-        <template v-if="createTooltipMessage">
-          {{ createTooltipMessage }}
-        </template>
+    <template #tooltipContent>
+      <slot name="tooltipContent" />
+    </template>
 
-        <template v-else>
-          Du hast keine Berechtigung um Einträge zu erstellen.<br> Bitte kontaktiere deinen Administrator
-        </template>
-      </div>
+    <template #disabledTooltipContent>
+      <slot name="disabledTooltipContent" />
+    </template>
+
+    <template #invalidPermissionTooltipContent>
+      <slot name="invalidPermissionTooltipContent" />
     </template>
   </ActionButton>
 </template>

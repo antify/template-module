@@ -3,7 +3,7 @@ import {
   type Meta, type StoryObj,
 } from '@storybook/vue3';
 import {
-  Position, Grouped as _Grouped, Size, InputState
+  Position, Grouped as _Grouped, Size, InputState, AntFormGroupLabel, AntFormGroup, State, Direction,
 } from '@antify/ui';
 
 const meta: Meta<typeof DeleteButton> = {
@@ -109,4 +109,94 @@ export const InvalidPermission: Story = {
     ...Docs.args,
     canDelete: false,
   },
+};
+
+export const Summary: Story = {
+  parameters: {
+    chromatic: {
+      disableSnapshot: false,
+    },
+  },
+  render: (args) => ({
+    components: {
+      DeleteButton,
+      AntFormGroupLabel,
+      AntFormGroup,
+    },
+    setup() {
+      return {
+        args,
+        State,
+        Size,
+        _Grouped,
+        Direction,
+      };
+    },
+    template: `
+      <AntFormGroup>
+        <AntFormGroup>
+          <AntFormGroupLabel>Sizes</AntFormGroupLabel>
+          <div class="flex gap-2">
+            <DeleteButton :size="Size.xs2"/>
+            <DeleteButton :size="Size.xs"/>
+            <DeleteButton :size="Size.sm"/>
+            <DeleteButton :size="Size.md"/>
+            <DeleteButton :size="Size.lg"/>
+          </div>
+        </AntFormGroup>
+
+        <AntFormGroup>
+          <AntFormGroupLabel>Disabled</AntFormGroupLabel>
+          <div>
+            <DeleteButton disabled disabled-tooltip-message="Dieser Button ist deaktiviert"/>
+          </div>
+        </AntFormGroup>
+
+        <AntFormGroup>
+          <AntFormGroupLabel>Skeleton</AntFormGroupLabel>
+          <div>
+            <DeleteButton skeleton/>
+          </div>
+        </AntFormGroup>
+
+        <AntFormGroup>
+          <AntFormGroupLabel>No Permission</AntFormGroupLabel>
+          <div>
+            <DeleteButton :can-delete="false" invalid-permission-tooltip-message="Du hast keine Berechtigung, um diesen Button zu klicken"/>
+          </div>
+        </AntFormGroup>
+
+        <AntFormGroup>
+          <AntFormGroupLabel>With Tooltip</AntFormGroupLabel>
+          <div>
+            <DeleteButton tooltip-message="Das ist ein Löschen Button"/>
+          </div>
+        </AntFormGroup>
+
+        <AntFormGroup>
+          <AntFormGroupLabel>Grouped</AntFormGroupLabel>
+          <div class="flex gap-2">
+            <DeleteButton grouped="left"/>
+            <DeleteButton grouped="center"/>
+            <DeleteButton grouped="right"/>
+          </div>
+        </AntFormGroup>
+
+        <AntFormGroup>
+          <AntFormGroupLabel>Icon variant</AntFormGroupLabel>
+          <div>
+            <DeleteButton icon-variant/>
+          </div>
+        </AntFormGroup>
+
+        <AntFormGroup>
+          <AntFormGroupLabel>Expanded</AntFormGroupLabel>
+          <div>
+            <DeleteButton expanded/>
+          </div>
+        </AntFormGroup>
+      </AntFormGroup>
+    `,
+  }),
+  args: {},
 };

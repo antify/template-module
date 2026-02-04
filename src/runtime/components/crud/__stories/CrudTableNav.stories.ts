@@ -7,7 +7,7 @@ import {
 } from 'storybook-vue3-router';
 import {
   useRoute,
-} from 'vue-router'
+} from 'vue-router';
 
 const meta: Meta<typeof CrudTableNav> = {
   title: 'Crud/Crud Table Nav',

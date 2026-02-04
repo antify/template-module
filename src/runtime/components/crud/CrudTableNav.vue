@@ -85,9 +85,9 @@ const onChangePage = (val) => {
       query,
     });
 
-    emit('changePage', val)
+    emit('changePage', val);
   })();
-}
+};
 
 watch(() => props.fullWidth, (val) => {
   setTimeout(() => {
@@ -107,7 +107,7 @@ watch(() => route.query, () => {
   }
 }, {
   deep: true,
-})
+});
 </script>
 
 <template>

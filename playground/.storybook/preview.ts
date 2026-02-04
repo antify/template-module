@@ -12,6 +12,9 @@ setup((app) => {
 
 const preview: Preview = {
   parameters: {
+    chromatic: {
+      disableSnapshot: true,
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,

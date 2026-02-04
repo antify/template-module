@@ -5,7 +5,7 @@ import {
   AntButton,
   State,
 } from '@antify/ui';
-import DeleteButton from "../buttons/DeleteButton.vue";
+import DeleteButton from '../buttons/DeleteButton.vue';
 import {
   useVModel,
 } from '@vueuse/core';
@@ -48,19 +48,19 @@ function confirmDialog() {
       <div
         class="bg-base-100 gap-2 text-for-white-bg-font flex w-full justify-end"
       >
-          <AntButton
-            :state="State.base"
-            @click="closeDialog"
-          >
-            Abbrechen
-          </AntButton>
+        <AntButton
+          :state="State.base"
+          @click="closeDialog"
+        >
+          Abbrechen
+        </AntButton>
 
-          <DeleteButton
-            filled
-            @click="confirmDialog"
-          >
-            Löschen
-          </DeleteButton>
+        <DeleteButton
+          filled
+          @click="confirmDialog"
+        >
+          Löschen
+        </DeleteButton>
       </div>
     </template>
   </AntDialog>

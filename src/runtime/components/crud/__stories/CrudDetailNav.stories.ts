@@ -1,7 +1,9 @@
 import {
   type Meta, type StoryObj,
 } from '@storybook/vue3';
-import {AntTabs, InputState} from '@antify/ui';
+import {
+  AntTabs, InputState,
+} from '@antify/ui';
 import CrudDetailNav from '../CrudDetailNav.vue';
 import {
   vueRouter,

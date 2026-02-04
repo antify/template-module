@@ -35,6 +35,9 @@ const props = withDefaults(defineProps<{
   tooltipDelay?: number;
   submit?: boolean;
   dataE2e?: string;
+  tooltipMessage?: string;
+  disabledTooltipMessage?: string;
+  invalidPermissionTooltipMessage?: string;
 }>(), {
   state: State.primary,
   hasPermission: true,
@@ -43,8 +46,9 @@ const props = withDefaults(defineProps<{
   dataE2e: 'action-button',
 });
 const slots = useSlots();
-const hasTooltip = computed(() => !props.skeleton && !props.disabled && props.hasPermission && hasSlotContent(slots['tooltipContent']));
-const hasPermissionTooltip = computed(() => !props.skeleton && !(!props.disabled && props.hasPermission) && hasSlotContent(slots['invalidPermissionTooltipContent']));
+const hasTooltip = computed(() => !props.skeleton && !props.disabled && props.hasPermission && (hasSlotContent(slots['tooltipContent']) || props.tooltipMessage));
+const hasDisabledTooltip = computed(() => !props.skeleton && props.disabled && props.hasPermission);
+const hasPermissionTooltip = computed(() => !props.skeleton && !props.hasPermission);
 </script>
 
 <template>
@@ -69,15 +73,46 @@ const hasPermissionTooltip = computed(() => !props.skeleton && !(!props.disabled
     <slot />
 
     <template #tooltip-content>
-      <slot
-        v-if="hasTooltip"
-        name="tooltipContent"
-      />
+      <div v-if="hasPermissionTooltip">
+        <slot
+          v-if="hasSlotContent(slots['invalidPermissionTooltipContent'])"
+          name="invalidPermissionTooltipContent"
+        />
 
-      <slot
-        v-if="hasPermissionTooltip"
-        name="invalidPermissionTooltipContent"
-      />
+        <div v-else-if="invalidPermissionTooltipMessage">
+          {{ invalidPermissionTooltipMessage }}
+        </div>
+
+        <div v-else>
+          [Platzhalter]
+        </div>
+      </div>
+
+      <div v-if="hasDisabledTooltip">
+        <slot
+          v-if="hasSlotContent(slots['disabledTooltipContent'])"
+          name="disabledTooltipContent"
+        />
+
+        <div v-else-if="disabledTooltipMessage">
+          {{ disabledTooltipMessage }}
+        </div>
+
+        <div v-else>
+          [Platzhalter]
+        </div>
+      </div>
+
+      <div v-if="hasTooltip">
+        <slot
+          v-if="hasSlotContent(slots['tooltipContent'])"
+          name="tooltipContent"
+        />
+
+        <div v-if="tooltipMessage">
+          {{ tooltipMessage }}
+        </div>
+      </div>
     </template>
   </AntButton>
 </template>
