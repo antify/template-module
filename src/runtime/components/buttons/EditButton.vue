@@ -20,7 +20,9 @@ withDefaults(defineProps<{
   expanded?: boolean;
   canEdit?: boolean;
   tooltipPosition?: Position;
-  editTooltipMessage?: string;
+  tooltipMessage?: string;
+  disabledTooltipMessage?: string;
+  invalidPermissionTooltipMessage?: string;
   tooltipState?: InputState;
 }>(), {
   iconVariant: false,
@@ -41,6 +43,9 @@ withDefaults(defineProps<{
     :has-permission="canEdit"
     :tooltip-position="tooltipPosition"
     :tooltip-state="tooltipState"
+    :tooltip-message="tooltipMessage"
+    :disabled-tooltip-message="disabledTooltipMessage"
+    :invalid-permission-tooltip-message="invalidPermissionTooltipMessage"
     data-e2e="edit-button"
     @click="$emit('click')"
     @blur="$emit('blur')"
@@ -52,16 +57,16 @@ withDefaults(defineProps<{
       Bearbeiten
     </template>
 
-    <template #invalidPermissionTooltipContent>
-      <div>
-        <template v-if="editTooltipMessage">
-          {{ editTooltipMessage }}
-        </template>
+    <template #tooltipContent>
+      <slot name="tooltipContent" />
+    </template>
 
-        <template v-else>
-          Du hast keine Berechtigung um Einträge zu bearbeiten.<br> Bitte kontaktiere deinen Administrator
-        </template>
-      </div>
+    <template #disabledTooltipContent>
+      <slot name="disabledTooltipContent" />
+    </template>
+
+    <template #invalidPermissionTooltipContent>
+      <slot name="invalidPermissionTooltipContent" />
     </template>
   </ActionButton>
 </template>

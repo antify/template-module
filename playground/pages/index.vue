@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import {
   InputState,
-  AntFormGroupLabel
+  AntFormGroupLabel,
 } from '#template-module';
 </script>
 

@@ -43,3 +43,8 @@ jobs:
         with:
           # 👇 Chromatic projectToken, refer to the manage page to obtain it.
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          # Prevents the job from finishing immediately after the upload
+          exitOnceUploaded: true
+          # If changes are found, the job fails (Exit Code != 0)
+          # This prevents release.yml from being triggered
+          exitZeroOnChanges: false

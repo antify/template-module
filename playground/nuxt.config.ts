@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   },
 
   imports: {
-    autoImport: false
+    autoImport: false,
   },
 
   modules: [
@@ -20,7 +20,9 @@ export default defineNuxtConfig({
     port: 6006,
   },
 
-  css: ['~/assets/css/main.css'],
+  css: [
+    '~/assets/css/main.css',
+  ],
 
-  compatibilityDate: '2024-09-06'
+  compatibilityDate: '2024-09-06',
 });
