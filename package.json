@@ -16,8 +16,10 @@
   "exports": {
     ".": {
       "types": "./dist/module.d.mts",
-      "import": "./dist/module.mjs"
-    }
+      "import": "./dist/module.mjs",
+      "style": "./dist/runtime/index.css"
+    },
+    "./style.css": "./dist/runtime/index.css"
   },
   "main": "./dist/module.mjs",
   "types": "./dist/module.d.mts",

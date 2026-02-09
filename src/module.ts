@@ -54,6 +54,7 @@ export default defineNuxtModule<ModuleOptions>({
 
     // Include base @antify/ui styles
     nuxt.options.css.push(resolve(runtimeDir, 'assets/antify.css'));
+    nuxt.options.css.push(resolve('./runtime/index.css'));
 
     // Include optional additional tailwind-related styles through config
     if (options.tailwindCSSPath) {
