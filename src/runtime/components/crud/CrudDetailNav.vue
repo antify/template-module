@@ -10,7 +10,6 @@ import {
 } from '@antify/ui';
 import DeleteDialog from '../dialogs/DeleteDialog.vue';
 import DeleteButton from '../buttons/DeleteButton.vue';
-import CreateButton from "../buttons/CreateButton.vue";
 
 defineEmits([
   'delete',
