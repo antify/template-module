@@ -10,6 +10,7 @@ import SaveButton from '../buttons/SaveButton.vue';
 import {
   InputState,
 } from '@antify/ui';
+import CreateButton from "../buttons/CreateButton.vue";
 
 defineEmits([
   'back',
@@ -23,6 +24,8 @@ withDefaults(defineProps<{
   tooltipState?: InputState;
   saveTooltipMessage?: string;
   saveAndNewTooltipMessage?: string;
+  disabledTooltipMessage?: string;
+  invalidPermissionTooltipMessage?: string;
 }>(), {
   disabled: false,
   skeleton: false,
@@ -57,19 +60,47 @@ withDefaults(defineProps<{
           :skeleton="skeleton"
           :disabled="disabled"
           :can-save="canSave"
-          :save-tooltip-message="saveTooltipMessage"
+          :tooltip-message="saveTooltipMessage"
+          :disabled-tooltip-message="disabledTooltipMessage"
+          :invalid-permission-tooltip-message="invalidPermissionTooltipMessage"
           :tooltip-state="tooltipState"
           @click="$emit('save-and-new')"
-        />
+        >
+          <template #tooltipContent>
+            <slot name="saveAndNewTooltipContent" />
+          </template>
+
+          <template #disabledTooltipContent>
+            <slot name="saveAndNewDisabledTooltipContent" />
+          </template>
+
+          <template #invalidPermissionTooltipContent>
+            <slot name="saveAndNewInvalidPermissionTooltipContent" />
+          </template>
+        </SaveAndNewButton>
 
         <SaveButton
           :skeleton="skeleton"
           :disabled="disabled"
           :can-save="canSave"
-          :save-tooltip-message="saveAndNewTooltipMessage"
+          :tooltip-message="saveAndNewTooltipMessage"
+          :disabled-tooltip-message="disabledTooltipMessage"
+          :invalid-permission-tooltip-message="invalidPermissionTooltipMessage"
           :tooltip-state="tooltipState"
           @click="$emit('save')"
-        />
+        >
+          <template #tooltipContent>
+            <slot name="saveTooltipContent" />
+          </template>
+
+          <template #disabledTooltipContent>
+            <slot name="saveDisabledTooltipContent" />
+          </template>
+
+          <template #invalidPermissionTooltipContent>
+            <slot name="saveInvalidPermissionTooltipContent" />
+          </template>
+        </SaveButton>
       </slot>
       <slot name="after-buttons-right" />
     </div>

@@ -27,6 +27,8 @@ const props = withDefaults(defineProps<{
   skeleton?: boolean;
   searchPlaceholderText?: string;
   createTooltipMessage?: string;
+  disabledTooltipMessage?: string;
+  invalidPermissionTooltipMessage?: string;
   tooltipState?: InputState;
 }>(), {
   fullWidth: true,
@@ -152,10 +154,24 @@ watch(searchInputRef, (val) => {
           :skeleton="skeleton"
           :can-create="canCreate"
           :invalid-permission-tooltip-position="Position.left"
-          :create-tooltip-message="createTooltipMessage"
+          :tooltip-message="createTooltipMessage"
+          :disabled-tooltip-message="disabledTooltipMessage"
+          :invalid-permission-tooltip-message="invalidPermissionTooltipMessage"
           :tooltip-state="tooltipState"
           @click="() => emit('create')"
-        />
+        >
+          <template #tooltipContent>
+            <slot name="tooltipContent" />
+          </template>
+
+          <template #disabledTooltipContent>
+            <slot name="disabledTooltipContent" />
+          </template>
+
+          <template #invalidPermissionTooltipContent>
+            <slot name="invalidPermissionTooltipContent" />
+          </template>
+        </CreateButton>
       </slot>
     </div>
   </div>

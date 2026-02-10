@@ -10,6 +10,7 @@ import {
 } from '@antify/ui';
 import DeleteDialog from '../dialogs/DeleteDialog.vue';
 import DeleteButton from '../buttons/DeleteButton.vue';
+import CreateButton from "../buttons/CreateButton.vue";
 
 defineEmits([
   'delete',
@@ -22,6 +23,8 @@ withDefaults(defineProps<{
   showDeleteButton?: boolean;
   skeleton?: boolean;
   deleteTooltipMessage?: string;
+  disabledTooltipMessage?: string;
+  invalidPermissionTooltipMessage?: string;
   tooltipState?: InputState;
 }>(), {
   tabItems: () => [],
@@ -55,11 +58,25 @@ const dialogOpen = ref(false);
           :disabled="deleteButtonDisabled || !canDelete"
           :skeleton="skeleton"
           :can-delete="canDelete"
-          :delete-tooltip-message="deleteTooltipMessage"
+          :tooltip-message="deleteTooltipMessage"
+          :disabled-tooltip-message="disabledTooltipMessage"
+          :invalid-permission-tooltip-message="invalidPermissionTooltipMessage"
           :invalid-permission-tooltip-position="Position.left"
           :tooltip-state="tooltipState"
           @click="() => dialogOpen = true"
-        />
+        >
+          <template #tooltipContent>
+            <slot name="tooltipContent" />
+          </template>
+
+          <template #disabledTooltipContent>
+            <slot name="disabledTooltipContent" />
+          </template>
+
+          <template #invalidPermissionTooltipContent>
+            <slot name="invalidPermissionTooltipContent" />
+          </template>
+        </DeleteButton>
 
         <slot name="after-delete-button" />
       </slot>
