@@ -95,12 +95,17 @@ watch(() => props.fullWidth, (val) => {
   }, val ? 300 : 200);
 });
 
-watch(() => route.query, () => {
+watch(() => [
+  route.query,
+  pages.value,
+], () => {
   if (route.query[props.pageQuery]) {
-    const _page = route.query[props.pageQuery] >= 1 ? Number.parseInt(route.query[props.pageQuery]) : 1;
+    const _page = Number.parseInt(route.query[props.pageQuery]);
 
     if (_page <= 0 || _page > pages.value) {
-      return 1;
+      page.value = 1;
+
+      return;
     }
 
     page.value = _page;
