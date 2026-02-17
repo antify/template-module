@@ -27,7 +27,7 @@
     "dist"
   ],
   "dependencies": {
-    "@antify/ui": "4.1.25",
+    "@antify/ui": "4.1.26",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@nuxt/kit": "3.16.2",
     "@tailwindcss/vite": "4.0.7",
