@@ -8,7 +8,7 @@ import {
   useRouter, useRoute,
 } from 'vue-router';
 import {
-  computed, onMounted, ref, watch,
+  computed, ref, watch,
 } from 'vue';
 import {
   AntItemsPerPage,
