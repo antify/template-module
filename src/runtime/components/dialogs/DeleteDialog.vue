@@ -17,7 +17,7 @@ const emit = defineEmits([
 ]);
 const props = defineProps<{
   open: boolean;
-  entity: string;
+  entity?: string;
 }>();
 const _open = useVModel(props, 'open', emit);
 
@@ -40,9 +40,11 @@ function confirmDialog() {
     data-e2e="delete-dialog"
     @close="() => $emit('close')"
   >
-    <div>
-      Möchtest du wirklich <span class="font-semibold">{{ entity }}</span> löschen?
-    </div>
+    <slot>
+      <div>
+        Möchtest du wirklich <span class="font-semibold">{{ entity }}</span> löschen?
+      </div>
+    </slot>
 
     <template #footer>
       <div
