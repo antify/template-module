@@ -52,3 +52,33 @@ export const Docs: Story = {
     entity: 'Lorem ipsum',
   },
 };
+export const WithCustomMessage: Story = {
+  render: (args) => ({
+    components: {
+      DeleteDialog,
+      DeleteButton,
+    },
+    setup() {
+      return {
+        args,
+      };
+    },
+    template: `
+    <div class="h-96">
+      <DeleteButton @click="() => args.open = true"/>
+
+      <DeleteDialog
+        v-model:open="args.open"
+        :entity="args.entity"
+        v-bind="args"
+      >
+        This is a custom message. <br> You can put any content here, <br> e.g. a warning that this action cannot be undone.
+      </DeleteDialog>
+    </div>
+    `,
+  }),
+  args: {
+    open: true,
+    entity: 'Lorem ipsum',
+  },
+};

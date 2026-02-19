@@ -17,7 +17,7 @@ defineEmits([
 withDefaults(defineProps<{
   tabItems?: TabItem[];
   deleteButtonDisabled?: boolean;
-  getEntityName: () => string;
+  entityName?: string;
   canDelete?: boolean;
   showDeleteButton?: boolean;
   skeleton?: boolean;
@@ -83,8 +83,10 @@ const dialogOpen = ref(false);
 
     <DeleteDialog
       v-model:open="dialogOpen"
-      :entity="getEntityName()"
+      :entity="entityName"
       @confirm="$emit('delete')"
-    />
+    >
+      <slot name="delete-message" />
+    </DeleteDialog>
   </div>
 </template>

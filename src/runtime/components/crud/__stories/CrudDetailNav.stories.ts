@@ -48,10 +48,12 @@ export const Docs: Story = {
         args,
       };
     },
-    template: '<CrudDetailNav v-bind="args"/>',
+    template: `
+      <CrudDetailNav v-bind="args"/>
+    `,
   }),
   args: {
-    getEntityName: () => 'Lorem ipsum',
+    entityName: 'Lorem ipsum',
     tabItems: [
       {
         id: '1',
