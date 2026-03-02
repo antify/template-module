@@ -52,7 +52,7 @@ const hasPermissionTooltip = computed(() => !props.skeleton && !props.canEdit);
 
 const cardContainerClasses = computed(() => {
   return {
-    'gap-2 p-2 rounded-md text-sm border': true,
+    'gap-2 p-2 rounded-md text-sm border bg-white': true,
     flex: props.expanded,
     'inline-flex': !props.expanded,
     'flex-col': props.description || hasDescriptionSlotContent,
