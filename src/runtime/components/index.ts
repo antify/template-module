@@ -18,6 +18,9 @@ import CrudDetailNav from './crud/CrudDetailNav.vue';
 import CrudTableFilter from './crud/CrudTableFilter.vue';
 import CrudTableNav from './crud/CrudTableNav.vue';
 
+// Components
+import SwitchCard from './SwitchCard.vue';
+
 export {
   ActionButton,
   CreateButton,
@@ -33,4 +36,5 @@ export {
   CrudDetailNav,
   CrudTableFilter,
   CrudTableNav,
+  SwitchCard,
 };
