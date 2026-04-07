@@ -53,4 +53,6 @@ export const uiComponents = [
   'AntToast',
   'AntToaster',
   'AntTooltip',
+  'AntCountryInput',
+  'AntPhoneNumberInput',
 ];
