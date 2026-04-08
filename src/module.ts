@@ -31,7 +31,7 @@ export default defineNuxtModule<ModuleOptions>({
     addPlugin(resolve(runtimeDir, 'plugins/template-module'));
     addImportsDir(resolve(runtimeDir, 'composables'));
 
-    nuxt.options.alias['#template-module'] = '@antify/ui';
+    nuxt.options.alias['#template-module'] = resolve(runtimeDir, 'index');
 
     await addComponentsDir({
       path: resolve(resolve(runtimeDir, 'components')),
