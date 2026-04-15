@@ -9,7 +9,6 @@ export default defineBuildConfig({
   externals: [
     '@fortawesome/free-solid-svg-icons',
     '@antify/ui',
-    '@nuxtjs/google-fonts',
     '#vue-router',
   ],
   failOnWarn: false,
