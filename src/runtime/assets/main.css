@@ -1,1 +1,5 @@
 @import "@antify/ui";
+
+@theme {
+  --default-font-family: 'Hanken Grotesk', 'Inter', 'sans-serif';
+}
