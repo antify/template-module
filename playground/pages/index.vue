@@ -9,6 +9,10 @@ import {
   <AntFormGroup>
     <AntFormGroupLabel>Playground</AntFormGroupLabel>
 
+    <div class="bg-success-500 text-success-500-font p-2">
+      This is a test if the styles of antify/ui works
+    </div>
+
     <AntTemplateActionButton>
       Submit request
     </AntTemplateActionButton>
