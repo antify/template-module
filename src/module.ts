@@ -58,9 +58,17 @@ export default defineNuxtModule<ModuleOptions>({
       viteInlineConfig.plugins.push(tailwindcss());
     });
 
-    // Include base @antify/ui styles
-    nuxt.options.css.push(resolve(runtimeDir, 'assets/antify.css'));
-    nuxt.options.css.push(resolve(runtimeDir,'index.css'));
+    // Add fonts to assets to provide it in project
+    const fontsDir = resolve(runtimeDir, 'assets/fonts');
+
+    nuxt.hook('nitro:config', (nitroConfig) => {
+      nitroConfig.publicAssets = nitroConfig.publicAssets || [];
+      nitroConfig.publicAssets.push({
+        dir: fontsDir,
+        maxAge: 31536000,
+        baseURL: '/_template-module/fonts',
+      });
+    });
 
     // Include optional additional tailwind-related styles through config
     if (options.tailwindCSSPath) {
