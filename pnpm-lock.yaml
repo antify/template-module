@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@antify/ui':
-        specifier: 4.3.4
-        version: 4.3.4(@fortawesome/fontawesome-svg-core@7.1.0)(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(tailwindcss@4.0.7)(vue-router@4.6.4(vue@3.5.27(typescript@5.9.3)))(vue@3.5.27(typescript@5.9.3))
+        specifier: 4.3.5
+        version: 4.3.5(@fortawesome/fontawesome-svg-core@7.1.0)(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(tailwindcss@4.0.7)(vue-router@4.6.4(vue@3.5.27(typescript@5.9.3)))(vue@3.5.27(typescript@5.9.3))
       '@fortawesome/free-solid-svg-icons':
         specifier: ^6.6.0
         version: 6.7.2
@@ -111,8 +111,8 @@ packages:
   '@adobe/css-tools@4.4.4':
     resolution: {integrity: sha512-Elp+iwUx5rN5+Y8xLt5/GRoG20WGoDCQ/1Fb+1LiGtvwbDavuSk0jhD/eZdckHAuzcDzccnkv+rEjyWfRx18gg==}
 
-  '@antify/ui@4.3.4':
-    resolution: {integrity: sha512-d7DnieO7xURV16k7XaOty3ija5jYz3D98hVQzlly9FjhmwN3e2fHgL66DcHYZ2PV3FHW0DbbhqX3s5+5h5pYFQ==}
+  '@antify/ui@4.3.5':
+    resolution: {integrity: sha512-I8KfOs0F4SxsPHYonLtXb+FdVu+8WCASMZY3ZvSCZhd23zwdCJU5uKDrRNJ8SeD3xvh7TzpiYxo71qHSZG8rTw==}
     engines: {node: ^22.14.0, pnpm: '>=10.10.0'}
     peerDependencies:
       tailwindcss: 4.0.7
@@ -6081,8 +6081,8 @@ packages:
   vue-component-type-helpers@2.2.12:
     resolution: {integrity: sha512-YbGqHZ5/eW4SnkPNR44mKVc6ZKQoRs/Rux1sxC6rdwXb4qpbOSYfDr9DsTHolOTGmIKgM9j141mZbBeg05R1pw==}
 
-  vue-component-type-helpers@3.2.7:
-    resolution: {integrity: sha512-+gPp5YGmhfsj1IN+xUo7y0fb4clfnOiiUA39y07yW1VzCRjzVgwLbtmdWlghh7mXrPsEaYc7rrIir/HT6C8vYQ==}
+  vue-component-type-helpers@3.2.8:
+    resolution: {integrity: sha512-9689efAXhN/EV86plgkL/XFiJSXhGtWPG6JDboZ+QnjlUWUUQrQ0ILKQtw4iQsuwIwu5k6Aw+JnehDe7161e7A==}
 
   vue-demi@0.14.10:
     resolution: {integrity: sha512-nMZBOwuzabUO0nLgIcc6rycZEebF6eeUfaiQx9+WSk8e29IbLvPU9feI6tqW4kTo3hvoYAJkMh8n8D0fuISphg==}
@@ -6266,7 +6266,7 @@ snapshots:
 
   '@adobe/css-tools@4.4.4': {}
 
-  '@antify/ui@4.3.4(@fortawesome/fontawesome-svg-core@7.1.0)(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(tailwindcss@4.0.7)(vue-router@4.6.4(vue@3.5.27(typescript@5.9.3)))(vue@3.5.27(typescript@5.9.3))':
+  '@antify/ui@4.3.5(@fortawesome/fontawesome-svg-core@7.1.0)(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(tailwindcss@4.0.7)(vue-router@4.6.4(vue@3.5.27(typescript@5.9.3)))(vue@3.5.27(typescript@5.9.3))':
     dependencies:
       '@floating-ui/vue': 1.1.10(vue@3.5.27(typescript@5.9.3))
       '@fortawesome/free-regular-svg-icons': 6.7.2
@@ -8082,7 +8082,7 @@ snapshots:
       ts-dedent: 2.2.0
       type-fest: 2.19.0
       vue: 3.5.27(typescript@5.9.3)
-      vue-component-type-helpers: 3.2.7
+      vue-component-type-helpers: 3.2.8
 
   '@storybook/vue3@8.6.15(storybook@8.6.15)(vue@3.5.27(typescript@5.9.3))':
     dependencies:
@@ -8096,7 +8096,7 @@ snapshots:
       ts-dedent: 2.2.0
       type-fest: 2.19.0
       vue: 3.5.27(typescript@5.9.3)
-      vue-component-type-helpers: 3.2.7
+      vue-component-type-helpers: 3.2.8
 
   '@stylistic/eslint-plugin@2.13.0(eslint@8.57.0)(typescript@5.9.3)':
     dependencies:
@@ -12994,7 +12994,7 @@ snapshots:
 
   vue-component-type-helpers@2.2.12: {}
 
-  vue-component-type-helpers@3.2.7: {}
+  vue-component-type-helpers@3.2.8: {}
 
   vue-demi@0.14.10(vue@3.5.27(typescript@5.9.3)):
     dependencies:
