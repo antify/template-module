@@ -21,6 +21,10 @@ import CrudTableNav from './crud/CrudTableNav.vue';
 // Components
 import SwitchCard from './SwitchCard.vue';
 
+// Inputs
+import MobileNumberInput from './inputs/MobileNumberInput.vue';
+import LandlineNumberInput from './inputs/LandlineNumberInput.vue';
+
 export {
   ActionButton,
   CreateButton,
@@ -37,4 +41,6 @@ export {
   CrudTableFilter,
   CrudTableNav,
   SwitchCard,
+  MobileNumberInput,
+  LandlineNumberInput
 };
