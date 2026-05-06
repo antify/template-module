@@ -3,6 +3,11 @@ import { computed } from 'vue';
 import {
   AntPhoneNumberInput,
   Locale,
+  type Country,
+  CountryValueKey,
+  Size,
+  InputState,
+  COUNTRIES
 } from '@antify/ui';
 
 const props = withDefaults(defineProps<{
@@ -11,11 +16,46 @@ const props = withDefaults(defineProps<{
   placeholder?: string;
   countryPlaceholder?: string;
   searchPlaceholder?: string;
+  countryValue?: string | number | null;
+  countries?: Country[];
+  inputRef?: null | HTMLInputElement;
+  size?: Size;
+  state?: InputState;
+  disabled?: boolean;
+  readonly?: boolean;
+  skeleton?: boolean;
+  label?: string;
+  description?: string;
+  messages?: string[];
+  searchable?: boolean;
+  countryMaxHeight?: string;
+  countryValueKey?: CountryValueKey;
+  countrySortable?: boolean;
+  nullable?: boolean;
 }>(), {
   locale: Locale.en,
+  inputRef: null,
+  size: Size.md,
+  state: InputState.base,
+  searchable: true,
+  searchPlaceholder: undefined,
+  countryPlaceholder: undefined,
+  placeholder: undefined,
+  countryValueKey: CountryValueKey.dialCode,
+  countrySortable: true,
+  messages: () => [],
+  nullable: true,
+  countries: () => COUNTRIES,
 });
 
-defineEmits(['update:modelValue']);
+defineEmits([
+  'update:modelValue',
+  'update:countryValue',
+  'update:inputRef',
+  'select-country',
+  'validate',
+  'blur',
+]);
 
 const PLACEHOLDERS = {
   phoneNumber: {
@@ -81,11 +121,31 @@ const searchPlaceholderText = computed(() => {
 <template>
   <AntPhoneNumberInput
     :model-value="modelValue"
-    @update:model-value="$emit('update:modelValue', $event)"
+    :country-value="countryValue"
+    :countries="countries"
+    :input-ref="inputRef"
+    :size="size"
+    :state="state"
+    :disabled="disabled"
+    :readonly="readonly"
+    :skeleton="skeleton"
+    :label="label"
+    :description="description"
+    :messages="messages"
+    :searchable="searchable"
+    :country-max-height="countryMaxHeight"
+    :country-value-key="countryValueKey"
+    :country-sortable="countrySortable"
+    :nullable="nullable"
     :locale="locale"
-    v-bind="$attrs"
     :placeholder="placeholderText"
-    :countryPlaceholder="countryPlaceholderText"
-    :searchPlaceholder="searchPlaceholderText"
+    :country-placeholder="countryPlaceholderText"
+    :search-placeholder="searchPlaceholderText"
+    @update:model-value="$emit('update:modelValue', $event)"
+    @update:country-value="$emit('update:countryValue', $event)"
+    @update:input-ref="$emit('update:inputRef', $event)"
+    @select-country="$emit('select-country', $event)"
+    @validate="$emit('validate', $event)"
+    @blur="$emit('blur', $event)"
   />
 </template>
