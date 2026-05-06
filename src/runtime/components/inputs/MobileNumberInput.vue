@@ -116,7 +116,6 @@ const searchPlaceholderText = computed(() => {
 
   return PLACEHOLDERS.search[props.locale] || PLACEHOLDERS.search[Locale.en];
 });
-
 </script>
 
 <template>
