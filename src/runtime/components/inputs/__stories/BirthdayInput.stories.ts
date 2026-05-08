@@ -53,7 +53,7 @@ export const LocalizationDemo: Story = {
       const dateCustom = ref<string | null>(null);
 
       const selectedLocale = ref(Locale.de);
-      const locales = Object.values(Locale).filter(loc => ['de', 'en', 'ru'].includes(loc)); // Ограничим выбор до реализованных языков (по желанию)
+      const locales = Object.values(Locale).filter(loc => ['de', 'en', 'ru'].includes(loc));
 
       return {
         args,
