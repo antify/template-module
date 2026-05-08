@@ -24,6 +24,7 @@ import SwitchCard from './SwitchCard.vue';
 // Inputs
 import MobileNumberInput from './inputs/MobileNumberInput.vue';
 import LandlineNumberInput from './inputs/LandlineNumberInput.vue';
+import BirthdayInput from './inputs/BirthdayInput.vue';
 
 export {
   ActionButton,
@@ -42,5 +43,6 @@ export {
   CrudTableNav,
   SwitchCard,
   MobileNumberInput,
-  LandlineNumberInput
+  LandlineNumberInput,
+  BirthdayInput
 };
