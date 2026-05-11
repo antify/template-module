@@ -117,17 +117,6 @@ const I18N = {
       [Locale.ru]: 'Вы выбрали день (например, 30-е или 31-е число), которого нет в этом месяце. Пожалуйста, выберите другой месяц.',
       [Locale.uk]: 'Ви вибрали день (наприклад, 30-те або 31-ше число), якого немає в цьому місяці. Будь ласка, виберіть інший місяць.',
     },
-    invalidDay: {
-      [Locale.de]: 'Dieser bestimmte Tag ist nicht verfügbar, da der von Ihnen gewählte Monat weniger Tage hat.',
-      [Locale.en]: 'This specific day is not available because the month you have selected has fewer days.',
-      [Locale.ar]: 'هذا اليوم المحدد غير متاح لأن الشهر الذي حددته يحتوي على أيام أقل.',
-      [Locale.cs]: 'Tento konkrétní den není k dispozici, protože vybraný měsíc má méně dní.',
-      [Locale.es]: 'Este día en específico no está disponible porque el mes que ha seleccionado tiene menos días.',
-      [Locale.fr]: "Ce jour précis n'est pas disponible car le mois que vous avez sélectionné compte moins de jours.",
-      [Locale.it]: 'Questo giorno specifico non è disponibile perché il mese che hai selezionato ha meno giorni.',
-      [Locale.ru]: 'Этот конкретный день недоступен, так как в выбранном вами месяце меньше дней.',
-      [Locale.uk]: 'Цей конкретний день недоступний, оскільки в обраному вами місяці менше днів.',
-    },
     selectDayFirst: {
       [Locale.de]: 'Um ein gültiges Datum zu gewährleisten, beginnen Sie bitte mit der Auswahl des Tages, bevor Sie zum Monat übergehen.',
       [Locale.en]: 'To ensure a valid date is formed, please begin by selecting the day before moving on to the month.',
@@ -169,7 +158,6 @@ const tabLabels = computed(() => ({
 
 const tooltipNotLeapYear = computed(() => I18N.tooltips.notLeapYear[props.locale] || I18N.tooltips.notLeapYear[Locale.en]);
 const tooltipInvalidMonth = computed(() => I18N.tooltips.invalidMonth[props.locale] || I18N.tooltips.invalidMonth[Locale.en]);
-const tooltipInvalidDay = computed(() => I18N.tooltips.invalidDay[props.locale] || I18N.tooltips.invalidDay[Locale.en]);
 const tooltipSelectDayFirst = computed(() => I18N.tooltips.selectDayFirst[props.locale] || I18N.tooltips.selectDayFirst[Locale.en]);
 const tooltipSelectMonthFirst = computed(() => I18N.tooltips.selectMonthFirst[props.locale] || I18N.tooltips.selectMonthFirst[Locale.en]);
 </script>
@@ -191,7 +179,6 @@ const tooltipSelectMonthFirst = computed(() => I18N.tooltips.selectMonthFirst[pr
     :tab-labels="tabLabels"
     :tooltip-not-leap-year="tooltipNotLeapYear"
     :tooltip-invalid-month="tooltipInvalidMonth"
-    :tooltip-invalid-day="tooltipInvalidDay"
     :tooltip-select-day-first="tooltipSelectDayFirst"
     :tooltip-select-month-first="tooltipSelectMonthFirst"
     @update:model-value="emit('update:modelValue', $event)"
