@@ -44,5 +44,5 @@ export {
   SwitchCard,
   MobileNumberInput,
   LandlineNumberInput,
-  BirthdayInput
+  BirthdayInput,
 };

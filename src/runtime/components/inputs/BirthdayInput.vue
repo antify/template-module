@@ -82,7 +82,7 @@ const I18N = {
       [Locale.it]: 'Anno',
       [Locale.ru]: 'Год',
       [Locale.uk]: 'Рік',
-    }
+    },
   },
   months: {
     [Locale.de]: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
@@ -136,16 +136,20 @@ const I18N = {
       [Locale.cs]: 'Nejprve musíte vybrat měsíc. To nám pomůže zajistit, že vybrané datum bude zcela platné.',
       [Locale.es]: 'Debe seleccionar un mes primero. Esto nos ayuda a asegurar que la fecha final que seleccione sea completamente válida.',
       [Locale.fr]: "Vous devez d'abord sélectionner un mois. Cela nous aide à nous assurer que la date finale que vous sélectionnez est entièrement valide.",
-      [Locale.it]: 'Devi prima selezionare un mese. Questo ci aiuta a garantire che la data finale selezionata sia completamente valida.',
+      [Locale.it]: 'Devi prima selezionare un mese. Questo ci aiuta a garantire que la data finale selezionata sia completamente valida.',
       [Locale.ru]: 'Сначала необходимо выбрать месяц. Это поможет нам убедиться, что итоговая дата абсолютно корректна.',
       [Locale.uk]: 'Спочатку необхідно вибрати місяць. Це допоможе нам переконатися, що кінцева дата цілком коректна.',
-    }
-  }
+    },
+  },
 };
 
-const placeholderText = computed(() =>
-  props.placeholder || I18N.placeholder[props.locale] || I18N.placeholder[Locale.en]
-);
+const placeholderText = computed(() => {
+  if (props.placeholder !== undefined && props.placeholder !== null) {
+    return props.placeholder;
+  }
+
+  return I18N.placeholder[props.locale] || I18N.placeholder[Locale.en];
+});
 
 const monthLabels = computed(() =>
   I18N.months[props.locale] || I18N.months[Locale.en]
