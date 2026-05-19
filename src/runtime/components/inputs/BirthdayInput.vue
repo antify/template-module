@@ -1,5 +1,7 @@
 <script lang="ts" setup>
-import { computed } from 'vue';
+import {
+  computed,
+} from 'vue';
 import {
   AntBirthdayInput,
   Locale,
@@ -31,12 +33,10 @@ const props = withDefaults(defineProps<{
   nullable: false,
   placeholder: undefined,
 });
-
 const emit = defineEmits([
   'update:modelValue',
   'validate',
 ]);
-
 const I18N = {
   placeholder: {
     [Locale.de]: 'Datum auswählen',
@@ -85,15 +85,132 @@ const I18N = {
     },
   },
   months: {
-    [Locale.de]: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
-    [Locale.en]: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-    [Locale.ar]: ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'],
-    [Locale.cs]: ['Led', 'Úno', 'Bře', 'Dub', 'Kvě', 'Čer', 'Čvc', 'Srp', 'Zář', 'Říj', 'Lis', 'Pro'],
-    [Locale.es]: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
-    [Locale.fr]: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc'],
-    [Locale.it]: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
-    [Locale.ru]: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
-    [Locale.uk]: ['Січ', 'Лют', 'Бер', 'Кві', 'Тра', 'Чер', 'Лип', 'Сер', 'Вер', 'Жов', 'Лис', 'Гру'],
+    [Locale.de]: [
+      'Jan',
+      'Feb',
+      'Mär',
+      'Apr',
+      'Mai',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Okt',
+      'Nov',
+      'Dez',
+    ],
+    [Locale.en]: [
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
+    ],
+    [Locale.ar]: [
+      'يناير',
+      'فبراير',
+      'مارس',
+      'أبريل',
+      'مايو',
+      'يونيو',
+      'يوليو',
+      'أغسطس',
+      'سبتمبر',
+      'أكتوبر',
+      'نوفمبر',
+      'ديسمبر',
+    ],
+    [Locale.cs]: [
+      'Led',
+      'Úno',
+      'Bře',
+      'Dub',
+      'Kvě',
+      'Čer',
+      'Čvc',
+      'Srp',
+      'Zář',
+      'Říj',
+      'Lis',
+      'Pro',
+    ],
+    [Locale.es]: [
+      'Ene',
+      'Feb',
+      'Mar',
+      'Abr',
+      'May',
+      'Jun',
+      'Jul',
+      'Ago',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dic',
+    ],
+    [Locale.fr]: [
+      'Jan',
+      'Fév',
+      'Mar',
+      'Avr',
+      'Mai',
+      'Juin',
+      'Juil',
+      'Aoû',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Déc',
+    ],
+    [Locale.it]: [
+      'Gen',
+      'Feb',
+      'Mar',
+      'Apr',
+      'Mag',
+      'Giu',
+      'Lug',
+      'Ago',
+      'Set',
+      'Ott',
+      'Nov',
+      'Dic',
+    ],
+    [Locale.ru]: [
+      'Янв',
+      'Фев',
+      'Мар',
+      'Апр',
+      'Май',
+      'Июн',
+      'Июл',
+      'Авг',
+      'Сен',
+      'Окт',
+      'Ноя',
+      'Дек',
+    ],
+    [Locale.uk]: [
+      'Січ',
+      'Лют',
+      'Бер',
+      'Кві',
+      'Тра',
+      'Чер',
+      'Лип',
+      'Сер',
+      'Вер',
+      'Жов',
+      'Лис',
+      'Гру',
+    ],
   },
   tooltips: {
     notLeapYear: {
@@ -142,7 +259,6 @@ const I18N = {
     },
   },
 };
-
 const placeholderText = computed(() => {
   if (props.placeholder !== undefined && props.placeholder !== null) {
     return props.placeholder;
@@ -150,17 +266,12 @@ const placeholderText = computed(() => {
 
   return I18N.placeholder[props.locale] || I18N.placeholder[Locale.en];
 });
-
-const monthLabels = computed(() =>
-  I18N.months[props.locale] || I18N.months[Locale.en]
-);
-
+const monthLabels = computed(() => I18N.months[props.locale] || I18N.months[Locale.en]);
 const tabLabels = computed(() => ({
   day: I18N.tabs.day[props.locale] || I18N.tabs.day[Locale.en],
   month: I18N.tabs.month[props.locale] || I18N.tabs.month[Locale.en],
   year: I18N.tabs.year[props.locale] || I18N.tabs.year[Locale.en],
 }));
-
 const tooltipNotLeapYear = computed(() => I18N.tooltips.notLeapYear[props.locale] || I18N.tooltips.notLeapYear[Locale.en]);
 const tooltipInvalidMonth = computed(() => I18N.tooltips.invalidMonth[props.locale] || I18N.tooltips.invalidMonth[Locale.en]);
 const tooltipSelectDayFirst = computed(() => I18N.tooltips.selectDayFirst[props.locale] || I18N.tooltips.selectDayFirst[Locale.en]);

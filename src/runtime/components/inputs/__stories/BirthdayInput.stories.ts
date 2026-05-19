@@ -1,7 +1,16 @@
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type {
+  Meta,
+  StoryObj,
+} from '@storybook/vue3';
 import BirthdayInput from '../BirthdayInput.vue';
-import { ref } from 'vue';
-import { Size, InputState, Locale } from '@antify/ui';
+import {
+  ref,
+} from 'vue';
+import {
+  Size,
+  InputState,
+  Locale,
+} from '@antify/ui';
 
 const meta: Meta<typeof BirthdayInput> = {
   title: 'Inputs/Birthday Input',
@@ -15,20 +24,28 @@ const meta: Meta<typeof BirthdayInput> = {
   },
   argTypes: {
     size: {
-      control: { type: 'select' },
+      control: {
+        type: 'select',
+      },
       options: Object.values(Size),
     },
     state: {
-      control: { type: 'select' },
+      control: {
+        type: 'select',
+      },
       options: Object.values(InputState),
     },
-    onValidate: { action: 'validate' },
+    onValidate: {
+      action: 'validate',
+    },
     nullable: {
       control: 'boolean',
       description: 'Zeigt das Löschen-Symbol im Eingabefeld an.',
     },
     locale: {
-      control: { type: 'select' },
+      control: {
+        type: 'select',
+      },
       options: Object.values(Locale),
       description: 'Sprache für die automatische Übersetzung der UI-Elemente und Fehlermeldungen.',
     },
@@ -51,9 +68,12 @@ export const LocalizationDemo: Story = {
     setup() {
       const dateAuto = ref<string | null>(null);
       const dateCustom = ref<string | null>(null);
-
       const selectedLocale = ref(Locale.de);
-      const locales = Object.values(Locale).filter(loc => ['de', 'en', 'ru'].includes(loc));
+      const locales = Object.values(Locale).filter(loc => [
+        'de',
+        'en',
+        'ru',
+      ].includes(loc));
 
       return {
         args,
