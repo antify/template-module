@@ -29,6 +29,7 @@ const props = withDefaults(defineProps<{
   skeleton: false,
   messages: () => [],
   nullable: false,
+  placeholder: undefined,
 });
 
 const emit = defineEmits([
