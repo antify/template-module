@@ -55,4 +55,5 @@ export const uiComponents = [
   'AntTooltip',
   'AntCountryInput',
   'AntPhoneNumberInput',
+  'AntBirthdayInput',
 ];
