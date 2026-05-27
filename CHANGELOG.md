@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.35](https://github.com/antify/template-module/compare/v0.0.34...v0.0.35) (2026-05-27)
+
 ### [0.0.34](https://github.com/antify/template-module/compare/v0.0.33...v0.0.34) (2026-05-27)
 
 ### [0.0.33](https://github.com/antify/template-module/compare/v0.0.32...v0.0.33) (2026-05-20)
