@@ -57,7 +57,7 @@ const cardContainerClasses = computed(() => {
     'inline-flex': !props.expanded,
     'flex-col': props.description || hasDescriptionSlotContent,
     'justify-between': !props.description && !hasDescriptionSlotContent,
-    'border-base-200 text-for-white-bg-font': props.state === InputState.base,
+    'border-base-300 text-for-white-bg-font': props.state === InputState.base,
     'border-info-500 text-info-600 bg-info-100': props.state === InputState.info,
     'border-success-500 text-success-600 bg-success-100': props.state === InputState.success,
     'border-warning-500 text-warning-600 bg-warning-100': props.state === InputState.warning,

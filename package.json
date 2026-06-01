@@ -1,6 +1,6 @@
 {
   "name": "@antify/template-module",
-  "version": "0.0.31",
+  "version": "0.0.35",
   "type": "module",
   "scripts": {
     "build": "nuxt-module-build build",
@@ -27,7 +27,7 @@
     "dist"
   ],
   "dependencies": {
-    "@antify/ui": "4.3.7",
+    "@antify/ui": "4.3.16",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@nuxt/kit": "3.16.2",
     "@tailwindcss/vite": "4.0.7",
@@ -50,7 +50,8 @@
     "@stylistic/eslint-plugin": "^2.11.0",
     "autoprefixer": "^10.4.20",
     "chromatic": "^15.0.0",
-    "eslint": "8.57.0",
+    "eslint": "9.39.4",
+    "eslint-plugin-storybook": "^10.4.0",
     "eslint-plugin-vue": "^9.32.0",
     "globals": "^15.13.0",
     "nuxt": "3.16.2",
