@@ -100,7 +100,7 @@ watch(() => [
   pages.value,
 ], () => {
   if (route.query[props.pageQuery]) {
-    const _page = Number.parseInt(route.query[props.pageQuery]);
+    const _page = Number.parseInt(route.query[props.pageQuery] as string);
 
     if (_page <= 0 || _page > pages.value) {
       page.value = 1;
@@ -109,6 +109,8 @@ watch(() => [
     }
 
     page.value = _page;
+  } else {
+    page.value = 1;
   }
 }, {
   deep: true,
