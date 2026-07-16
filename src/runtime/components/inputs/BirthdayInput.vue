@@ -257,6 +257,17 @@ const I18N = {
       [Locale.ru]: 'Сначала необходимо выбрать месяц. Это поможет нам убедиться, что итоговая дата абсолютно корректна.',
       [Locale.uk]: 'Спочатку необхідно вибрати місяць. Це допоможе нам переконатися, що кінцева дата цілком коректна.',
     },
+    futureDate: {
+      [Locale.de]: 'Das Geburtsdatum kann nicht in der Zukunft liegen.',
+      [Locale.en]: 'The date of birth cannot be in the future.',
+      [Locale.ar]: 'لا يمكن أن يكون تاريخ الميلاد في المستقبل.',
+      [Locale.cs]: 'Datum narození nemůže být v budoucnosti.',
+      [Locale.es]: 'La fecha de nacimiento no puede ser en el futuro.',
+      [Locale.fr]: 'La date de naissance ne peut pas être dans le futur.',
+      [Locale.it]: 'La data di nascita non può essere nel futuro.',
+      [Locale.ru]: 'Дата рождения не может быть в будущем.',
+      [Locale.uk]: 'Дата народження не може бути в майбутньому.',
+    },
   },
 };
 const placeholderText = computed(() => {
@@ -276,6 +287,7 @@ const tooltipNotLeapYear = computed(() => I18N.tooltips.notLeapYear[props.locale
 const tooltipInvalidMonth = computed(() => I18N.tooltips.invalidMonth[props.locale] || I18N.tooltips.invalidMonth[Locale.en]);
 const tooltipSelectDayFirst = computed(() => I18N.tooltips.selectDayFirst[props.locale] || I18N.tooltips.selectDayFirst[Locale.en]);
 const tooltipSelectMonthFirst = computed(() => I18N.tooltips.selectMonthFirst[props.locale] || I18N.tooltips.selectMonthFirst[Locale.en]);
+const tooltipFutureDate = computed(() => I18N.tooltips.futureDate[props.locale] || I18N.tooltips.futureDate[Locale.en]);
 </script>
 
 <template>
@@ -297,6 +309,7 @@ const tooltipSelectMonthFirst = computed(() => I18N.tooltips.selectMonthFirst[pr
     :tooltip-invalid-month="tooltipInvalidMonth"
     :tooltip-select-day-first="tooltipSelectDayFirst"
     :tooltip-select-month-first="tooltipSelectMonthFirst"
+    :tooltip-future-date="tooltipFutureDate"
     @update:model-value="emit('update:modelValue', $event)"
     @validate="emit('validate', $event)"
   />
