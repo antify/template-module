@@ -13,3 +13,4 @@ onlyBuiltDependencies:
 
 minimumReleaseAgeExclude:
   - '@antify/ui'
+  - 'vue-component-type-helpers'
