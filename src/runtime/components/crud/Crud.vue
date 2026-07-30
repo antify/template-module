@@ -1,10 +1,8 @@
 <script setup lang="ts">
 withDefaults(defineProps<{
   showDetail?: boolean;
-  flat?: boolean;
 }>(), {
   showDetail: false,
-  flat: false,
 });
 </script>
 
@@ -14,11 +12,8 @@ withDefaults(defineProps<{
     data-e2e="crud"
   >
     <div
-      class="left-content h-full flex flex-col overflow-hidden"
-      :class="[
-        showDetail ? 'w-[40rem]' : 'w-full',
-        flat ? 'bg-transparent gap-0' : 'bg-base-300 gap-px'
-      ]"
+      class="left-content h-full flex flex-col bg-base-300 gap-px overflow-hidden"
+      :class="{'w-[40rem]': showDetail, 'w-full': !showDetail}"
     >
       <div class="bg-white">
         <slot name="search-section" />
