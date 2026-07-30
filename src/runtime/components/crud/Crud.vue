@@ -15,7 +15,10 @@ withDefaults(defineProps<{
       class="left-content h-full flex flex-col bg-base-300 gap-px overflow-hidden"
       :class="{'w-[40rem]': showDetail, 'w-full': !showDetail}"
     >
-      <div class="bg-white">
+      <div
+        v-if="$slots['search-section']"
+        class="bg-white"
+      >
         <slot name="search-section" />
       </div>
 
@@ -23,7 +26,10 @@ withDefaults(defineProps<{
         <slot name="table-section" />
       </div>
 
-      <div class="bg-white">
+      <div
+        v-if="$slots['table-nav-section']"
+        class="bg-white"
+      >
         <slot name="table-nav-section" />
       </div>
     </div>
