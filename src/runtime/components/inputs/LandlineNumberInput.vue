@@ -1,5 +1,7 @@
 <script lang="ts" setup>
-import { computed } from 'vue';
+import {
+  computed,
+} from 'vue';
 import {
   AntPhoneNumberInput,
   Locale,
@@ -7,7 +9,7 @@ import {
   CountryValueKey,
   Size,
   InputState,
-  COUNTRIES
+  COUNTRIES,
 } from '@antify/ui';
 
 const props = withDefaults(defineProps<{
@@ -62,33 +64,42 @@ const PLACEHOLDERS = {
     [Locale.de]: 'Telefonnummer',
     [Locale.en]: 'Phone number',
     [Locale.ar]: 'رقم الهاتف',
+    [Locale.bg]: 'Телефонен номер',
     [Locale.cs]: 'Telefonní číslo',
     [Locale.es]: 'Número de teléfono',
     [Locale.fr]: 'Numéro de téléphone',
     [Locale.it]: 'Numero di telefono',
+    [Locale.pl]: 'Numer telefonu',
     [Locale.ru]: 'Номер телефона',
+    [Locale.sr]: 'Broj telefona',
     [Locale.uk]: 'Номер телефону',
   },
   country: {
     [Locale.de]: 'Land wählen',
     [Locale.en]: 'Select country',
     [Locale.ar]: 'اختر الدولة',
+    [Locale.bg]: 'Изберете държава',
     [Locale.cs]: 'Vyberte zemi',
     [Locale.es]: 'Seleccionar país',
     [Locale.fr]: 'Sélectionner le pays',
     [Locale.it]: 'Seleziona paese',
+    [Locale.pl]: 'Wybierz kraj',
     [Locale.ru]: 'Выберите страну',
+    [Locale.sr]: 'Izaberite zemlju',
     [Locale.uk]: 'Виберіть країну',
   },
   search: {
     [Locale.de]: 'Suchen',
     [Locale.en]: 'Search',
     [Locale.ar]: 'بحث',
+    [Locale.bg]: 'Търсене',
     [Locale.cs]: 'Hledat',
     [Locale.es]: 'Buscar',
     [Locale.fr]: 'Rechercher',
     [Locale.it]: 'Cerca',
+    [Locale.pl]: 'Szukaj',
     [Locale.ru]: 'Поиск',
+    [Locale.sr]: 'Pretraga',
     [Locale.uk]: 'Пошук',
   },
 };
