@@ -136,7 +136,6 @@ export const LocalizationDemo: Story = {
     `,
   }),
   args: {
-    label: 'Geburtsdatum',
     size: Size.md,
     nullable: true,
   },
