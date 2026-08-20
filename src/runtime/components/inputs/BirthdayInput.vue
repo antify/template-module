@@ -39,18 +39,18 @@ const emit = defineEmits([
 ]);
 const I18N = {
   placeholder: {
-    [Locale.de]: 'Datum auswählen',
-    [Locale.en]: 'Select date',
-    [Locale.ar]: 'حدد التاريخ',
-    [Locale.bg]: 'Изберете дата',
-    [Locale.cs]: 'Vyberte datum',
-    [Locale.es]: 'Seleccionar fecha',
-    [Locale.fr]: 'Sélectionner la date',
-    [Locale.it]: 'Seleziona data',
-    [Locale.pl]: 'Wybierz datę',
-    [Locale.ru]: 'Выберите дату',
-    [Locale.sr]: 'Izaberite datum',
-    [Locale.uk]: 'Оберіть дату',
+    [Locale.de]: 'Geburtsdatum',
+    [Locale.en]: 'Date of birth',
+    [Locale.ar]: 'تاريخ الميلاد',
+    [Locale.bg]: 'Дата на раждане',
+    [Locale.cs]: 'Datum narození',
+    [Locale.es]: 'Fecha de nacimiento',
+    [Locale.fr]: 'Date de naissance',
+    [Locale.it]: 'Data di nascita',
+    [Locale.pl]: 'Data urodzenia',
+    [Locale.ru]: 'Дата рождения',
+    [Locale.sr]: 'Datum rođenja',
+    [Locale.uk]: 'Дата народження',
   },
   tabs: {
     day: {
@@ -340,11 +340,9 @@ const I18N = {
   },
 };
 const placeholderText = computed(() => {
-  if (props.placeholder !== undefined && props.placeholder !== null) {
-    return props.placeholder;
-  }
-
-  return I18N.placeholder[props.locale] || I18N.placeholder[Locale.en];
+  return props.placeholder
+    ?? props.label
+    ?? (I18N.placeholder[props.locale] || I18N.placeholder[Locale.en]);
 });
 const monthLabels = computed(() => I18N.months[props.locale] || I18N.months[Locale.en]);
 const tabLabels = computed(() => ({
