@@ -14,7 +14,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "nuxi typecheck playground",
-    "chromatic": "npx chromatic --project-token=chpt_d8f6b870f8bdcd8"
+    "chromatic": "chromatic"
   },
   "exports": {
     ".": {

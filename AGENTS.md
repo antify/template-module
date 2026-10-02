@@ -6,7 +6,7 @@ Guide for coding agents working in `@antify/template-module`. Everything below w
 
 Pushing to any branch runs the `chromatic` workflow (build + Chromatic visual upload). When that workflow succeeds on `main`, the `release` workflow runs without any manual approval: `standard-version` bumps the version from the commit messages, writes the changelog, tags and pushes the release commit to `main`, then `pnpm publish --access public` publishes to npmjs.com. Lint, typecheck and tests are not part of that gate. Treat every merge to `main` as a release.
 
-- Never run `pnpm release`, `pnpm publish` or `pnpm chromatic` locally.
+- Never run `pnpm release`, `pnpm publish` or `pnpm chromatic` locally. `pnpm chromatic` reads the project token from the `CHROMATIC_PROJECT_TOKEN` environment variable (never commit it); CI uses the repository secret of the same name.
 - Do not edit `.github/workflows/chromatic.yml` or `release.yml` unless explicitly asked.
 
 ## Purpose
