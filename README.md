@@ -147,16 +147,18 @@ handler.handleResponseError(error);
 
 ## Development
 
-1. Clone this repository
+Requirements: Node >= 22.14 and pnpm 10.18 (see `.nvmrc` and the `packageManager` field). No database or `.env` is needed.
 
-2. Install dependencies:
 ```bash
-   pnpm install
+pnpm install
+pnpm dev:prepare   # generate playground types
+pnpm build         # build the module into dist/
+pnpm dev           # playground (port 3000) and Storybook (port 6006)
+pnpm lint          # lint without writing; use pnpm lint:fix to autofix
+pnpm typecheck     # type check the playground
 ```
-3. Start the playground:
-```bash
-   pnpm dev
-```
+
+There are no automated tests yet. Merging to `main` publishes a new npm release automatically. See [AGENTS.md](./AGENTS.md) for the repository layout, conventions and the known lint/type baseline.
 
 ## License
 MIT License

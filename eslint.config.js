@@ -142,6 +142,11 @@ export default [
   {
     ignores: [
       '!.storybook',
+      '**/dist/**',
+      '**/.nuxt/**',
+      '**/.output/**',
+      '**/node_modules/**',
+      '**/storybook-static/**',
     ],
   },
 ];
