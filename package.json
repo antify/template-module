@@ -3,9 +3,6 @@
   "version": "0.0.59",
   "type": "module",
   "packageManager": "pnpm@10.18.0",
-  "engines": {
-    "node": ">=22.14"
-  },
   "scripts": {
     "build": "nuxt-module-build build",
     "prepack": "nuxt-module-build build",
@@ -49,7 +46,6 @@
     "@nuxt/eslint-plugin": "^0.7.6",
     "@nuxt/module-builder": "latest",
     "@nuxtjs/storybook": "8.3.5",
-    "@types/node": "^22.0.0",
     "@storybook/addon-essentials": "8.6.15",
     "@storybook/addon-interactions": "8.6.15",
     "@storybook/addon-links": "8.6.15",

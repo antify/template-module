@@ -158,7 +158,7 @@ pnpm lint          # lint without writing; use pnpm lint:fix to autofix
 pnpm typecheck     # type check the playground
 ```
 
-There are no automated tests yet. Merging to `main` publishes a new npm release automatically. See [AGENTS.md](./AGENTS.md) for the repository layout, conventions and the known lint/type baseline.
+There are no automated tests yet. Merging to `main` publishes a new npm release automatically. See [AGENTS.md](https://github.com/antify/template-module/blob/main/AGENTS.md) for the repository layout, conventions and the known lint/type baseline.
 
 ## License
 MIT License
