@@ -207,11 +207,6 @@ export const WithSlotContent: Story = {
 };
 
 export const Summary: Story = {
-  parameters: {
-    chromatic: {
-      disableSnapshot: false,
-    },
-  },
   render: (args) => ({
     components: {
       SwitchCard,

@@ -128,11 +128,6 @@ export const WithoutPermission: Story = {
 };
 
 export const Summary: Story = {
-  parameters: {
-    chromatic: {
-      disableSnapshot: false,
-    },
-  },
   render: (args) => ({
     components: {
       ActionButton,

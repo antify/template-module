@@ -1,0 +1,37 @@
+# .github/workflows/ci.yml
+
+# Workflow name
+name: ci
+
+# Event for the workflow
+on: push
+
+# List of jobs
+jobs:
+  build:
+    # Operating System
+    runs-on: ubuntu-latest
+    # Job steps
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22.14
+
+      - uses: pnpm/action-setup@v3
+        name: Install pnpm
+        with:
+          version: 10.10
+          run_install: false
+
+      - name: Install dependencies
+        run: pnpm i
+
+      - name: Prepare playground
+        run: pnpm run dev:prepare
+
+      - name: Build module
+        run: pnpm run build
