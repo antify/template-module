@@ -112,11 +112,6 @@ export const InvalidPermission: Story = {
 };
 
 export const Summary: Story = {
-  parameters: {
-    chromatic: {
-      disableSnapshot: false,
-    },
-  },
   render: (args) => ({
     components: {
       EditButton,

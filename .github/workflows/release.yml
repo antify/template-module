@@ -2,7 +2,7 @@ name: release
 
 on:
   workflow_run:
-    workflows: [chromatic]
+    workflows: [ci]
     types: [completed]
     branches: [main]
 
